@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.10.5'
+	id 'fabric-loom' version '1.13-SNAPSHOT'
 	id "me.shedaniel.unified-publishing" version "0.1.+"
 	id 'maven-publish'
 }
@@ -68,7 +68,7 @@ unifiedPublishing {
 	project {
 		displayName.set "v$project.version"
 		releaseType.set "release"
-		gameVersions.set(["1.21.5"])
+		gameVersions.set(["1.21.11"])
 		gameLoaders.set(["fabric"])
 
 		System.getenv("changelog")?.with { String changelogg ->

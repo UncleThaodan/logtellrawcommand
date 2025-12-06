@@ -3,6 +3,7 @@ package velizarbg.logtellrawcommand.commands;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.command.CommandRegistryAccess;
+import net.minecraft.command.DefaultPermissions;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.command.argument.TextArgumentType;
 import net.minecraft.server.command.ServerCommandSource;
@@ -18,7 +19,7 @@ public class LogTellrawCommand {
 
 	public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandRegistryAccess) {
 		dispatcher.register(literal("logtellraw")
-			.requires(source -> source.hasPermissionLevel(2))
+			.requires(source -> source.getPermissions().hasPermission(DefaultPermissions.GAMEMASTERS))
 			.then(literal("targetless")
 				.then(argument("message", TextArgumentType.text(commandRegistryAccess))
 					.executes(context -> {
